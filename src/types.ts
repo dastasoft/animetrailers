@@ -2,6 +2,16 @@ export type Anime = {
   id: number
   coverURL: string
   title: string
+  largeImageURL: string
+  videoURL?: string
+  episodeCount: number
+  status: string
+  synopsis: string
+  genres: string[]
+  streaming?: {
+    name: string
+    url: string
+  }[]
 }
 
 type RawImageData = {
@@ -27,5 +37,9 @@ export type RawAnimeData = {
   synopsis: string
   genres: {
     name: string
+  }[]
+  streaming: {
+    name: string
+    url: string
   }[]
 }

@@ -4,14 +4,14 @@ import { Container } from './Container'
 import { StyledCard } from './StyledCard'
 
 type CardProps = {
-  id?: string
+  id: number
   coverURL: string
   title: string
 }
 
-export default function Card({ coverURL, title }: CardProps) {
+export default function Card({ id, coverURL, title }: CardProps) {
   return (
-    <Container>
+    <Container to={`/animes/${id}/${title}`}>
       <StyledCard role="button" aria-hidden>
         <img src={coverURL} alt={`${title} cover`} />
       </StyledCard>

@@ -12,13 +12,25 @@ function transformData(rawData: any) {
     episodeCount: rawData.episodes,
     status: rawData.status,
     synopsis: rawData.synopsis,
+    genres: rawData.genres.map(({ name }: { name: string }) => name),
+    streaming: rawData.streaming,
   }
 }
 
-async function getTopAnime() {
-  const data = fakeAPI.data.sort((a, b) => b.score - a.score)
+function getTopAnime() {
+  const data = fakeAPI.topAnime.sort((a, b) => b.score - a.score)
+
+  if (!data || data.length === 0) throw Error()
 
   return data.map((anime) => transformData(anime))
 }
 
-export { getTopAnime }
+function getAnimeById(id: number) {
+  const data = fakeAPI.fullAnime.find(({ mal_id }) => mal_id === id)
+
+  if (!data) throw Error()
+
+  return [transformData(data)]
+}
+
+export { getAnimeById, getTopAnime }
