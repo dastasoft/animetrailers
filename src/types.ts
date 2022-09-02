@@ -2,8 +2,8 @@ export type Anime = {
   id: number
   coverURL: string
   title: string
-  largeImageURL: string
   videoURL?: string
+  largeImageURL: string
   episodeCount: number
   status: string
   synopsis: string
@@ -14,32 +14,9 @@ export type Anime = {
   }[]
 }
 
-type RawImageData = {
-  image_url: string
-  small_image_url: string
-  large_image_url: string
-}
-
-export type RawAnimeData = {
-  mal_id: number
-  trailer: {
-    youtube_id: string
-    url: string
-    embed_url: string
-  }
-  images: {
-    jpg: RawImageData
-    webp: RawImageData
-  }
+export type Promo = {
+  id: number
   title: string
-  episodes: number
-  status: string
-  synopsis: string
-  genres: {
-    name: string
-  }[]
-  streaming: {
-    name: string
-    url: string
-  }[]
+  coverURL: string
+  videoURL: string
 }

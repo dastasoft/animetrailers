@@ -1,24 +1,35 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
-import useAnime from '../../hooks/useAnime'
+import {
+  getTopAnime,
+  JikanAPIResponse,
+  parseRawAnimeData,
+  RawAnimeData,
+} from '../../api/jikanAPI'
+import useFetch from '../../hooks/useFetch'
+import { Anime } from '../../types'
 import Card from './Card'
 import { Grid } from './Grid'
 
 export default function AnimeList() {
-  const { animeList, topAnime, loading, error } = useAnime()
+  const [animeList, setAnimeList] = useState<Anime[]>([])
+  const { data, loading, error } = useFetch<JikanAPIResponse<RawAnimeData[]>>(
+    getTopAnime()
+  )
 
   useEffect(() => {
-    topAnime()
-  }, [topAnime])
+    setAnimeList(data ? data.data.map((anime) => parseRawAnimeData(anime)) : [])
+  }, [data])
 
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error</div>
 
   return (
     <Grid>
-      {animeList.map(({ id, coverURL, title }) => (
-        <Card key={id} id={id} coverURL={coverURL} title={title} />
-      ))}
+      {data &&
+        animeList.map(({ id, coverURL, title }) => (
+          <Card key={id} id={id} coverURL={coverURL} title={title} />
+        ))}
     </Grid>
   )
 }
