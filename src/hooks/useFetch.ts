@@ -1,13 +1,13 @@
 /* eslint-disable no-undef */
 import { useEffect, useReducer, useRef } from 'react'
 
+import useLocalStorage from './useLocalStorage'
+
 type State<T> = {
   data?: T
   loading: boolean
   error?: Error
 }
-
-type Cache<T> = { [url: string]: T }
 
 type Action<T> =
   | { type: 'loading' }
@@ -15,7 +15,7 @@ type Action<T> =
   | { type: 'error'; payload: Error }
 
 function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
-  const cache = useRef<Cache<T>>({})
+  const [cache, setCache] = useLocalStorage<T>('cache', {} as T)
 
   // Used to prevent state update if the component is unmounted
   const cancelRequest = useRef<boolean>(false)
@@ -50,20 +50,20 @@ function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
     const fetchData = async () => {
       dispatch({ type: 'loading' })
 
-      if (cache.current[url]) {
-        console.log('from cache for ->', url)
-        dispatch({ type: 'fetched', payload: cache.current[url] })
+      if (cache[url]) {
+        dispatch({ type: 'fetched', payload: cache[url] })
         return
       }
 
       try {
+        console.debug('hit from outside the cache', url)
         const response = await fetch(url, options)
         if (!response.ok) {
           throw new Error(response.statusText)
         }
 
         const data = (await response.json()) as T
-        cache.current[url] = data
+        setCache({ ...cache, [url]: data })
         if (cancelRequest.current) return
 
         dispatch({ type: 'fetched', payload: data })
