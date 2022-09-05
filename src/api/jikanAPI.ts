@@ -88,7 +88,7 @@ export function parseRawPromoData(rawData: RawPromoData): Promo {
   return {
     id: rawData.entry.mal_id,
     title: rawData.entry.title,
-    coverURL: rawData.trailer.images.maximum_image_url!,
+    coverURL: rawData.trailer.images.large_image_url,
     videoURL: rawData.trailer.embed_url,
   }
 }

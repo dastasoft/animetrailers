@@ -1,4 +1,10 @@
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
 import { useEffect, useState } from 'react'
+import { Autoplay, Navigation, Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 import {
   getWatchRecentPromos,
@@ -8,6 +14,7 @@ import {
 } from '../../api/jikanAPI'
 import useFetch from '../../hooks/useFetch'
 import { Promo } from '../../types'
+import { Image } from './Image'
 
 export default function Carousel() {
   const [promos, setPromos] = useState<Promo[] | null>(null)
@@ -26,9 +33,21 @@ export default function Carousel() {
 
   return (
     promos && (
-      <div>
-        <img src={promos[0].coverURL} alt="" width="100%" />
-      </div>
+      <Swiper
+        modules={[Autoplay, Navigation, Pagination]}
+        slidesPerView={1}
+        autoplay
+        navigation
+        pagination
+      >
+        {promos.map((item) => {
+          return (
+            <SwiperSlide key={item.id}>
+              <Image src={item.coverURL} alt={item.title} />
+            </SwiperSlide>
+          )
+        })}
+      </Swiper>
     )
   )
 }

@@ -3,6 +3,7 @@
 ## TODO
 
 [] Carousel img slide animation
-[] Cache to localStorage -> useLocalStorage hook
-[x] Pagination for AnimeList
+[x] Cache to localStorage -> useLocalStorage hook
+[] Pagination for AnimeList
 [] Home button
+[] Search Anime by name
