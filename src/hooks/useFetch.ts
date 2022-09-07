@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { useEffect, useReducer, useRef } from 'react'
 
-import useLocalStorage from './useLocalStorage'
+import useSessionStorage from './useSessionStorage'
 
 type State<T> = {
   data?: T
@@ -15,7 +15,7 @@ type Action<T> =
   | { type: 'error'; payload: Error }
 
 function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
-  const [cache, setCache] = useLocalStorage<T>('cache', {} as T)
+  const [cache, setCache] = useSessionStorage<T>('cache', {} as T)
 
   // Used to prevent state update if the component is unmounted
   const cancelRequest = useRef<boolean>(false)
