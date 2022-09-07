@@ -53,10 +53,16 @@ export type RawPromoData = {
 }
 
 export type JikanAPIResponse<T> = {
+  pagination: {
+    last_visible_page: number
+    has_next_page: boolean
+    current_page: number
+  }
   data: T
 }
 
-export const getTopAnime = () => `${API_ENDPOINT}/v${API_VERSION}/top/anime`
+export const getTopAnime = (page: number = 1, limit: number = 6) =>
+  `${API_ENDPOINT}/v${API_VERSION}/top/anime?page=${page}&limit=${limit}`
 
 export const getAnimeFullById = (id: number) =>
   `${API_ENDPOINT}/v${API_VERSION}/anime/${id}/full`
