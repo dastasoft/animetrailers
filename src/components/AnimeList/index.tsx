@@ -34,17 +34,7 @@ export default function AnimeList() {
   )
 
   useEffect(() => {
-    console.debug('Now on page', page)
-  }, [page])
-
-  useEffect(() => {
-    console.debug('AnimeList', animeList)
-  }, [animeList])
-
-  useEffect(() => {
-    console.debug('Data', data)
     if (data) {
-      // TODO Do something with double render for strict mode
       setAnimeList((prevValue) => [
         ...prevValue,
         ...data.data.map((anime) => parseRawAnimeData(anime)),
@@ -52,27 +42,24 @@ export default function AnimeList() {
     }
   }, [data])
 
-  // TODO How I can add more entries smoothly
-  if (loading) return <div>Loading...</div>
-  if (error) return <div>Error</div>
-
   return (
     <Grid>
-      {data &&
-        animeList.map(({ id, coverURL, title }, index) => {
-          if (animeList.length === index + 1)
-            return (
-              <Card
-                key={id}
-                ref={lastAnimeRef}
-                id={id}
-                coverURL={coverURL}
-                title={title}
-              />
-            )
+      {animeList.map(({ id, coverURL, title }, index) => {
+        if (animeList.length === index + 1)
+          return (
+            <Card
+              key={id}
+              ref={lastAnimeRef}
+              id={id}
+              coverURL={coverURL}
+              title={title}
+            />
+          )
 
-          return <Card key={id} id={id} coverURL={coverURL} title={title} />
-        })}
+        return <Card key={id} id={id} coverURL={coverURL} title={title} />
+      })}
+      {loading && <div>Loading...</div>}
+      {error && <div>Error</div>}
     </Grid>
   )
 }
