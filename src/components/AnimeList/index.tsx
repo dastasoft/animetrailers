@@ -8,8 +8,7 @@ import {
 } from '../../api/jikanAPI'
 import useFetch from '../../hooks/useFetch'
 import { Anime } from '../../types'
-import Card from './Card'
-import { Grid } from './Grid'
+import AnimeGrid from '../AnimeGrid'
 
 export default function AnimeList() {
   const [animeList, setAnimeList] = useState<Anime[]>([])
@@ -43,23 +42,10 @@ export default function AnimeList() {
   }, [data])
 
   return (
-    <Grid>
-      {animeList.map(({ id, coverURL, title }, index) => {
-        if (animeList.length === index + 1)
-          return (
-            <Card
-              key={id}
-              ref={lastAnimeRef}
-              id={id}
-              coverURL={coverURL}
-              title={title}
-            />
-          )
-
-        return <Card key={id} id={id} coverURL={coverURL} title={title} />
-      })}
+    <>
+      <AnimeGrid animeList={animeList} lastAnimeRef={lastAnimeRef} />
       {loading && <div>Loading...</div>}
       {error && <div>Error</div>}
-    </Grid>
+    </>
   )
 }

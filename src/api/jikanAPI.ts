@@ -2,6 +2,7 @@ import { Anime, Promo } from '../types'
 
 const API_ENDPOINT = 'https://api.jikan.moe'
 const API_VERSION = 4
+const NSFW_ENABLED = false
 
 type RawImageData = {
   image_url: string
@@ -72,6 +73,11 @@ export const getAnimeById = (id: number) =>
 
 export const getWatchRecentPromos = () =>
   `${API_ENDPOINT}/v${API_VERSION}/watch/promos`
+
+export const getAnimeByName = (name: string = 'One Piece') =>
+  `${API_ENDPOINT}/v${API_VERSION}/anime?q=${name}&${
+    NSFW_ENABLED ? 'nsfw' : 'sfw'
+  }`
 
 export function parseRawAnimeData(rawData: RawAnimeData): Anime {
   return {

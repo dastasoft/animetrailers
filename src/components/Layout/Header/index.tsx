@@ -6,6 +6,7 @@ export default function Header() {
   return (
     <StyledHeader>
       <Link to="/">AnimeTrailers</Link>
+      <Link to="/search">Search</Link>
     </StyledHeader>
   )
 }

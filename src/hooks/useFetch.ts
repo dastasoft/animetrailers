@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { useEffect, useReducer, useRef } from 'react'
 
 import useSessionStorage from './useSessionStorage'
@@ -14,19 +13,20 @@ type Action<T> =
   | { type: 'fetched'; payload: T }
   | { type: 'error'; payload: Error }
 
-function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
+type Options = {
+  initialFetch: boolean
+  delayFetch?: number
+}
+
+function useFetch<T = unknown>(
+  url?: string,
+  { initialFetch, delayFetch }: Options = { initialFetch: true, delayFetch: 0 }
+): State<T> {
   const [cache, setCache] = useSessionStorage<T>('cache', {} as T)
 
-  // Used to prevent state update if the component is unmounted
-  const cancelRequest = useRef<boolean>(false)
+  const isFirstRun = useRef(true)
+  const cancelRequest = useRef(false)
 
-  const initialState: State<T> = {
-    loading: true,
-    error: undefined,
-    data: undefined,
-  }
-
-  // Keep state logic separated
   const fetchReducer = (state: State<T>, action: Action<T>): State<T> => {
     switch (action.type) {
       case 'loading':
@@ -40,9 +40,22 @@ function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
     }
   }
 
+  const initialState: State<T> = {
+    loading: true,
+    error: undefined,
+    data: undefined,
+  }
+
   const [state, dispatch] = useReducer(fetchReducer, initialState)
 
   useEffect(() => {
+    if (isFirstRun.current && !initialFetch) {
+      isFirstRun.current = false
+      return
+    }
+
+    if (isFirstRun.current) isFirstRun.current = false
+
     if (!url) return
 
     cancelRequest.current = false
@@ -56,8 +69,7 @@ function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
       }
 
       try {
-        console.debug('hit from outside the cache', url)
-        const response = await fetch(url, options)
+        const response = await fetch(url)
         if (!response.ok) {
           throw new Error(response.statusText)
         }
@@ -74,12 +86,13 @@ function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
       }
     }
 
-    void fetchData()
+    const timeoutId = setTimeout(() => fetchData(), delayFetch)
 
     return () => {
       cancelRequest.current = true
+      clearTimeout(timeoutId)
     }
-  }, [url])
+  }, [delayFetch, initialFetch, url])
 
   return state
 }

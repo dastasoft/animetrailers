@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import { Anime } from '../../types'
 import Cover from './Cover'
 import Detail from './Detail'
@@ -17,8 +19,11 @@ export default function AnimeDetail({
   videoURL,
   streaming,
 }: AnimeDetailProps) {
+  const navigate = useNavigate()
+
   return (
     <div>
+      <button onClick={() => navigate(-1)}>Back</button>
       <Cover url={coverURL} />
       <Detail title={title} episodeCount={episodeCount} status={status} />
       <Summary synopsis={synopsis} genres={genres} />
