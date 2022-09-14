@@ -8,7 +8,7 @@
 - [x] Home button
 - [x] Search Anime by name
 - [x] Pagination for searches -> Infinite scroll
-- [] Watch trailer from promos
+- [x] Watch trailer from promos
 - [] Design phase
 
 ## Features

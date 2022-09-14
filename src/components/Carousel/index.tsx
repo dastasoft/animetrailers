@@ -3,6 +3,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -40,10 +41,12 @@ export default function Carousel() {
         navigation
         pagination
       >
-        {promos.map((item) => {
+        {promos.map(({ id, coverURL, title }, index) => {
           return (
-            <SwiperSlide key={item.id}>
-              <Image src={item.coverURL} alt={item.title} />
+            <SwiperSlide key={`${id}-${index}`}>
+              <Link to={`/animes/${id}/${title}`}>
+                <Image src={coverURL} alt={title} />
+              </Link>
             </SwiperSlide>
           )
         })}
