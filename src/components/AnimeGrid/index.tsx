@@ -15,7 +15,7 @@ export default function AnimeGrid({ animeList, lastAnimeRef }: AnimeGridProps) {
         if (animeList.length === index + 1)
           return (
             <Card
-              key={id}
+              key={`${id}-${index}`}
               ref={lastAnimeRef}
               id={id}
               coverURL={coverURL}
@@ -23,7 +23,14 @@ export default function AnimeGrid({ animeList, lastAnimeRef }: AnimeGridProps) {
             />
           )
 
-        return <Card key={id} id={id} coverURL={coverURL} title={title} />
+        return (
+          <Card
+            key={`${id}-${index}`}
+            id={id}
+            coverURL={coverURL}
+            title={title}
+          />
+        )
       })}
     </Grid>
   )

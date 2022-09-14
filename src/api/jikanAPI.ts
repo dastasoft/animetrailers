@@ -62,8 +62,8 @@ export type JikanAPIResponse<T> = {
   data: T
 }
 
-export const getTopAnime = (page: number = 1, limit: number = 6) =>
-  `${API_ENDPOINT}/v${API_VERSION}/top/anime?page=${page}&limit=${limit}`
+export const getTopAnime = (page: number = 1) =>
+  `${API_ENDPOINT}/v${API_VERSION}/top/anime?page=${page}`
 
 export const getAnimeFullById = (id: number) =>
   `${API_ENDPOINT}/v${API_VERSION}/anime/${id}/full`
@@ -74,8 +74,8 @@ export const getAnimeById = (id: number) =>
 export const getWatchRecentPromos = () =>
   `${API_ENDPOINT}/v${API_VERSION}/watch/promos`
 
-export const getAnimeByName = (name: string = 'One Piece') =>
-  `${API_ENDPOINT}/v${API_VERSION}/anime?q=${name}&${
+export const getAnimeByName = (page: number = 1, name: string) =>
+  `${API_ENDPOINT}/v${API_VERSION}/anime?page=${page}&q=${name}&${
     NSFW_ENABLED ? 'nsfw' : 'sfw'
   }`
 
