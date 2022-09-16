@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const StyledHeader = styled.header`
-  min-height: 80px;
-  background-color: teal;
+  height: 70px;
+  background-color: #283869;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding-right: 1rem;
 `

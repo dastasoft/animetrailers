@@ -10,6 +10,9 @@
 - [x] Pagination for searches -> Infinite scroll
 - [x] Watch trailer from promos
 - [] Design phase
+  - [] Layout -> Header / Main / Footer
+  - [] Screens -> Home / Anime Detail / Anime Search
+- [] Add favorites feature
 
 ## Features
 
