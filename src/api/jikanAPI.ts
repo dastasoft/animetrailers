@@ -26,6 +26,7 @@ export type RawAnimeData = {
   title: string
   episodes: number
   status: string
+  score: number
   synopsis: string
   genres: {
     name: string
@@ -90,6 +91,7 @@ export function parseRawAnimeData(rawData: RawAnimeData): Anime {
       : '',
     episodeCount: rawData.episodes,
     status: rawData.status,
+    score: rawData.score,
     synopsis: rawData.synopsis,
     genres: rawData.genres.map(({ name }: { name: string }) => name),
     streaming: rawData.streaming,

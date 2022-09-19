@@ -6,6 +6,7 @@ export type Anime = {
   largeImageURL: string
   episodeCount: number
   status: string
+  score: number
   synopsis: string
   genres: string[]
   streaming?: {

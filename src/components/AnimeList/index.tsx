@@ -9,6 +9,9 @@ import {
 import useFetch from '../../hooks/useFetch'
 import { Anime } from '../../types'
 import AnimeGrid from '../AnimeGrid'
+import Heading from '../UI/Heading'
+import { Container } from './Container'
+import { Spacer } from './Spacer'
 
 export default function AnimeList() {
   const [animeList, setAnimeList] = useState<Anime[]>([])
@@ -42,10 +45,12 @@ export default function AnimeList() {
   }, [data])
 
   return (
-    <>
+    <Container>
+      <Heading size="4xl">Top Animes</Heading>
+      <Spacer />
       <AnimeGrid animeList={animeList} lastAnimeRef={lastAnimeRef} />
       {loading && <div>Loading...</div>}
       {error && <div>Error</div>}
-    </>
+    </Container>
   )
 }

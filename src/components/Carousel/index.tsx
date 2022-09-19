@@ -15,6 +15,7 @@ import {
 } from '../../api/jikanAPI'
 import useFetch from '../../hooks/useFetch'
 import { Promo } from '../../types'
+import { Container } from './Container'
 import { Image } from './Image'
 
 export default function Carousel() {
@@ -34,23 +35,27 @@ export default function Carousel() {
 
   return (
     promos && (
-      <Swiper
-        modules={[Autoplay, Navigation, Pagination]}
-        slidesPerView={1}
-        autoplay
-        navigation
-        pagination
-      >
-        {promos.map(({ id, coverURL, title }, index) => {
-          return (
-            <SwiperSlide key={`${id}-${index}`}>
-              <Link to={`/animes/${id}/${title}`}>
-                <Image src={coverURL} alt={title} />
-              </Link>
-            </SwiperSlide>
-          )
-        })}
-      </Swiper>
+      <Container>
+        <Swiper
+          modules={[Autoplay, Navigation, Pagination]}
+          centeredSlides={true}
+          slidesPerView={1}
+          autoplay
+          navigation
+          pagination
+          className="swipper"
+        >
+          {promos.map(({ id, coverURL, title }, index) => {
+            return (
+              <SwiperSlide key={`${id}-${index}`}>
+                <Link to={`/animes/${id}/${title}`}>
+                  <Image src={coverURL} alt={title} />
+                </Link>
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+      </Container>
     )
   )
 }

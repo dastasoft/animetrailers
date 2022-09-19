@@ -11,7 +11,7 @@ type AnimeGridProps = {
 export default function AnimeGrid({ animeList, lastAnimeRef }: AnimeGridProps) {
   return (
     <Grid>
-      {animeList.map(({ id, coverURL, title }, index) => {
+      {animeList.map(({ id, coverURL, title, status, score }, index) => {
         if (animeList.length === index + 1)
           return (
             <Card
@@ -20,6 +20,8 @@ export default function AnimeGrid({ animeList, lastAnimeRef }: AnimeGridProps) {
               id={id}
               coverURL={coverURL}
               title={title}
+              status={status}
+              score={score}
             />
           )
 
@@ -29,6 +31,8 @@ export default function AnimeGrid({ animeList, lastAnimeRef }: AnimeGridProps) {
             id={id}
             coverURL={coverURL}
             title={title}
+            status={status}
+            score={score}
           />
         )
       })}

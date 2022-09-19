@@ -13,6 +13,7 @@ html,
 body,
 #root {
   height: 100%;
+  color: white;
 }
 
 @font-face {
@@ -27,4 +28,9 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.swipper {
+  width: 90%;
+  height: 50%;
 }
