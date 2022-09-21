@@ -18,7 +18,7 @@ body,
 
 @font-face {
   font-family: LeagueGothic;
-  src: url(../public/fonts/LeagueGothic-Regular.otf);
+  src: url(/fonts/LeagueGothic-Regular.otf);
 }
 
 body {

@@ -14,6 +14,9 @@ type RawImageData = {
 
 export type RawAnimeData = {
   mal_id: number
+  aired: {
+    from: string
+  }
   trailer: {
     youtube_id: string
     url: string
@@ -26,6 +29,8 @@ export type RawAnimeData = {
   title: string
   episodes: number
   status: string
+  type: 'TV' | 'Movie'
+  year: number
   score: number
   synopsis: string
   genres: {
@@ -82,19 +87,16 @@ export const getAnimeByName = (page: number = 1, name: string) =>
 
 export function parseRawAnimeData(rawData: RawAnimeData): Anime {
   return {
+    ...rawData,
     id: rawData.mal_id,
     coverURL: rawData.images.jpg.image_url,
-    title: rawData.title,
     largeImageURL: rawData.images.jpg.large_image_url,
     videoURL: rawData.trailer.embed_url
       ? rawData.trailer.embed_url.replace('autoplay=1', 'autoplay=0')
       : '',
     episodeCount: rawData.episodes,
-    status: rawData.status,
-    score: rawData.score,
-    synopsis: rawData.synopsis,
     genres: rawData.genres.map(({ name }: { name: string }) => name),
-    streaming: rawData.streaming,
+    year: new Date(rawData.aired.from).getFullYear(),
   }
 }
 

@@ -1,5 +1,6 @@
 /* eslint-disable react/display-name */
 import { forwardRef, Ref } from 'react'
+import { Flexer } from '../../shared/Flexer'
 
 import Heading from '../../UI/Heading'
 import Text from '../../UI/Text'
@@ -13,13 +14,16 @@ type CardProps = {
   title: string
   status: string
   score: number
+  type: 'TV' | 'Movie'
+  year: number
 }
 
 const Card = forwardRef(
   (
-    { id, coverURL, title, status, score }: CardProps,
+    { id, coverURL, title, status, score, type, year }: CardProps,
     ref: Ref<HTMLImageElement>
   ) => {
+    console.log(type)
     return (
       <Container to={`/animes/${id}/${title}`}>
         <StyledCard role="button" aria-hidden>
@@ -29,13 +33,22 @@ const Card = forwardRef(
           <Heading as="h2" size="xl">
             {title}
           </Heading>
-          <Text as="span" size="md" color="#FF681A">
-            {score} Score
-          </Text>
-          <Text as="span" size="md">
-            {' '}
-            - {status}
-          </Text>
+          <Flexer>
+            <div>
+              <Text as="span" size="md">
+                {type === 'TV' ? '📺' : '🎥'} -
+              </Text>{' '}
+              <Text as="span" size="md" color="#FF681A">
+                {score} Score
+              </Text>{' '}
+              <Text as="span" size="md">
+                - {status}
+              </Text>
+            </div>
+            <Text as="span" size="md">
+              {year}
+            </Text>
+          </Flexer>
         </Bottom>
       </Container>
     )
