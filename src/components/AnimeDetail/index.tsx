@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 
 import { Anime } from '../../types'
+import { RootContainer } from '../shared/RootContainer'
 import Spacer from '../UI/Spacer'
-import { Container } from './Container'
 import Cover from './Cover'
 import Detail from './Detail'
 import Genres from './Genres'
@@ -31,7 +31,7 @@ export default function AnimeDetail({
   return (
     <div>
       <Cover url={coverURL} />
-      <Container>
+      <RootContainer>
         <button onClick={() => navigate(-1)}>Back</button>
         <Detail
           title={title}
@@ -50,7 +50,7 @@ export default function AnimeDetail({
         <Summary synopsis={synopsis} />
         <Spacer direction="column" spacing={1} />
         {streaming && <StreamingList streaming={streaming} />}
-      </Container>
+      </RootContainer>
     </div>
   )
 }

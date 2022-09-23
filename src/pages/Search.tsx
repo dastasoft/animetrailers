@@ -8,6 +8,11 @@ import {
   RawAnimeData,
 } from '../api/jikanAPI'
 import AnimeGrid from '../components/AnimeGrid'
+import { ContainerBg } from '../components/shared/ContainerBg'
+import { Liner } from '../components/shared/Liner'
+import { RootContainer } from '../components/shared/RootContainer'
+import Heading from '../components/UI/Heading'
+import Input from '../components/UI/Input'
 import useFetch from '../hooks/useFetch'
 import { Anime } from '../types'
 
@@ -66,17 +71,28 @@ export default function Search() {
 
   return (
     <div>
-      <input
-        name="animeSearch"
-        type="text"
-        ref={inputRef}
-        value={searchTerm.get('q')!}
-        onChange={onChangeHandler}
-      />
-
-      <AnimeGrid animeList={animeList} lastAnimeRef={lastAnimeRef} />
-      {loading && <div>Loading...</div>}
-      {error && <div>Error</div>}
+      <ContainerBg>
+        <Input
+          name="animeSearch"
+          type="text"
+          ref={inputRef}
+          value={searchTerm.get('q')!}
+          onChange={onChangeHandler}
+        />
+      </ContainerBg>
+      <RootContainer>
+        {animeList.length > 0 && (
+          <>
+            <Heading size="4xl" color="#FFE99C" as="h2">
+              Results
+            </Heading>
+            <Liner />
+            <AnimeGrid animeList={animeList} lastAnimeRef={lastAnimeRef} />
+          </>
+        )}
+        {loading && <div>Loading...</div>}
+        {error && <div>Error</div>}
+      </RootContainer>
     </div>
   )
 }

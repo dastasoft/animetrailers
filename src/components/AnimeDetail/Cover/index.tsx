@@ -1,4 +1,4 @@
-import { ImageContainer } from './ImageContainer'
+import { ContainerBg } from '../../shared/ContainerBg'
 
 type CoverProps = {
   url: string
@@ -6,8 +6,14 @@ type CoverProps = {
 
 export default function Cover({ url }: CoverProps) {
   return (
-    <ImageContainer>
-      <img src={url} alt="" />
-    </ImageContainer>
+    <ContainerBg>
+      <img
+        src={url}
+        alt=""
+        width="100%"
+        height="100%"
+        style={{ objectFit: 'contain' }}
+      />
+    </ContainerBg>
   )
 }

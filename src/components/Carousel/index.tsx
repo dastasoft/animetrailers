@@ -15,8 +15,7 @@ import {
 } from '../../api/jikanAPI'
 import useFetch from '../../hooks/useFetch'
 import { Promo } from '../../types'
-import { Container } from './Container'
-import { Image } from './Image'
+import { ContainerBg } from '../shared/ContainerBg'
 
 export default function Carousel() {
   const [promos, setPromos] = useState<Promo[] | null>(null)
@@ -35,7 +34,7 @@ export default function Carousel() {
 
   return (
     promos && (
-      <Container>
+      <ContainerBg>
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}
           centeredSlides={true}
@@ -49,13 +48,13 @@ export default function Carousel() {
             return (
               <SwiperSlide key={`${id}-${index}`}>
                 <Link to={`/animes/${id}/${title}`}>
-                  <Image src={coverURL} alt={title} />
+                  <img src={coverURL} alt={title} width="100%" height="100%" />
                 </Link>
               </SwiperSlide>
             )
           })}
         </Swiper>
-      </Container>
+      </ContainerBg>
     )
   )
 }

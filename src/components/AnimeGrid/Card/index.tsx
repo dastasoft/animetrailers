@@ -23,7 +23,6 @@ const Card = forwardRef(
     { id, coverURL, title, status, score, type, year }: CardProps,
     ref: Ref<HTMLImageElement>
   ) => {
-    console.log(type)
     return (
       <Container to={`/animes/${id}/${title}`}>
         <StyledCard role="button" aria-hidden>
