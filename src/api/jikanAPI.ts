@@ -33,6 +33,7 @@ export type RawAnimeData = {
   year: number
   score: number
   synopsis: string
+  scored_by: number
   genres: {
     name: string
   }[]
@@ -97,6 +98,7 @@ export function parseRawAnimeData(rawData: RawAnimeData): Anime {
     episodeCount: rawData.episodes,
     genres: rawData.genres.map(({ name }: { name: string }) => name),
     year: new Date(rawData.aired.from).getFullYear(),
+    votes: rawData.scored_by,
   }
 }
 

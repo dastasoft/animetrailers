@@ -1,3 +1,6 @@
+import Heading from '../../UI/Heading'
+import Text from '../../UI/Text'
+
 type StreamingListProps = {
   streaming: {
     name: string
@@ -8,7 +11,9 @@ type StreamingListProps = {
 export default function StreamingList({ streaming }: StreamingListProps) {
   return (
     <div>
-      <h3>Where to watch</h3>
+      <Heading size="2xl" color="#FFE99C" as="h3">
+        Where to watch
+      </Heading>
       <ul>
         {streaming.map(({ name, url }) => {
           return (
@@ -21,7 +26,7 @@ export default function StreamingList({ streaming }: StreamingListProps) {
         })}
       </ul>
 
-      <p>*Some titles may not be available in your country</p>
+      <Text size="xs">*Some titles may not be available in your country</Text>
     </div>
   )
 }

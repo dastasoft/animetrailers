@@ -11,6 +11,7 @@ export type Anime = {
   type: 'TV' | 'Movie'
   videoURL?: string
   year: number
+  votes: number
   streaming?: {
     name: string
     url: string

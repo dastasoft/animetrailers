@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import { forwardRef, Ref } from 'react'
-import { Flexer } from '../../shared/Flexer'
 
+import { Flexer } from '../../shared/Flexer'
 import Heading from '../../UI/Heading'
 import Text from '../../UI/Text'
 import { Bottom } from './Bottom'

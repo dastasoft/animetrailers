@@ -1,16 +1,16 @@
+import Heading from '../../UI/Heading'
+
 type SummaryProps = {
   synopsis: string
-  genres: string[]
 }
 
-export default function Summary({ synopsis, genres }: SummaryProps) {
+export default function Summary({ synopsis }: SummaryProps) {
   return (
     <div>
-      <h3>Summary</h3>
+      <Heading size="2xl" color="#FFE99C" as="h3">
+        Summary
+      </Heading>
       <p>{synopsis}</p>
-      {genres.map((genre) => {
-        return <span key={genre}>{genre}</span>
-      })}
     </div>
   )
 }
