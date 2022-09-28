@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
 import { forwardRef, Ref } from 'react'
 
+import { AnimeType } from '../../../types'
 import { Flexer } from '../../shared/Flexer'
 import Heading from '../../UI/Heading'
 import Text from '../../UI/Text'
@@ -14,7 +15,7 @@ type CardProps = {
   title: string
   status: string
   score: number
-  type: 'TV' | 'Movie'
+  type: AnimeType
   year: number
 }
 

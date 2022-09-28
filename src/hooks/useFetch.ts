@@ -1,6 +1,13 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useReducer, useRef } from 'react'
 
 import useSessionStorage from './useSessionStorage'
+
+const enum ACTIONS {
+  LOADING,
+  FETCHED,
+  ERROR,
+}
 
 type State<T> = {
   data?: T
@@ -9,9 +16,9 @@ type State<T> = {
 }
 
 type Action<T> =
-  | { type: 'loading' }
-  | { type: 'fetched'; payload: T }
-  | { type: 'error'; payload: Error }
+  | { type: ACTIONS.LOADING }
+  | { type: ACTIONS.FETCHED; payload: T }
+  | { type: ACTIONS.ERROR; payload: Error }
 
 type Options = {
   initialFetch: boolean
@@ -29,11 +36,11 @@ function useFetch<T = unknown>(
 
   const fetchReducer = (state: State<T>, action: Action<T>): State<T> => {
     switch (action.type) {
-      case 'loading':
+      case ACTIONS.LOADING:
         return { ...initialState }
-      case 'fetched':
+      case ACTIONS.FETCHED:
         return { ...initialState, data: action.payload, loading: false }
-      case 'error':
+      case ACTIONS.ERROR:
         return { ...initialState, error: action.payload, loading: false }
       default:
         return state
@@ -61,10 +68,10 @@ function useFetch<T = unknown>(
     cancelRequest.current = false
 
     const fetchData = async () => {
-      dispatch({ type: 'loading' })
+      dispatch({ type: ACTIONS.LOADING })
 
       if (cache[url]) {
-        dispatch({ type: 'fetched', payload: cache[url] })
+        dispatch({ type: ACTIONS.FETCHED, payload: cache[url] })
         return
       }
 
@@ -78,11 +85,11 @@ function useFetch<T = unknown>(
         setCache({ ...cache, [url]: data })
         if (cancelRequest.current) return
 
-        dispatch({ type: 'fetched', payload: data })
+        dispatch({ type: ACTIONS.FETCHED, payload: data })
       } catch (error) {
         if (cancelRequest.current) return
 
-        dispatch({ type: 'error', payload: error as Error })
+        dispatch({ type: ACTIONS.ERROR, payload: error as Error })
       }
     }
 

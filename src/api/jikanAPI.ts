@@ -1,4 +1,4 @@
-import { Anime, Promo } from '../types'
+import { Anime, AnimeType, Promo } from '../types'
 
 const API_ENDPOINT = 'https://api.jikan.moe'
 const API_VERSION = 4
@@ -29,7 +29,7 @@ export type RawAnimeData = {
   title: string
   episodes: number
   status: string
-  type: 'TV' | 'Movie'
+  type: AnimeType
   year: number
   score: number
   synopsis: string

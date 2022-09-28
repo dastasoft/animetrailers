@@ -1,3 +1,5 @@
+export type AnimeType = 'TV' | 'Movie'
+
 export type Anime = {
   coverURL: string
   episodeCount: number
@@ -8,7 +10,7 @@ export type Anime = {
   status: string
   synopsis: string
   title: string
-  type: 'TV' | 'Movie'
+  type: AnimeType
   videoURL?: string
   year: number
   votes: number

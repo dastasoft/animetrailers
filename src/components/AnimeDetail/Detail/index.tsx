@@ -1,10 +1,11 @@
+import { AnimeType } from '../../../types'
 import { Liner } from '../../shared/Liner'
 import Heading from '../../UI/Heading'
 import Text from '../../UI/Text'
 
 type DetailProps = {
   title: string
-  type: 'TV' | 'Movie'
+  type: AnimeType
   episodeCount: number
   score: number
   status: string

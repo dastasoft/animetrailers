@@ -1,5 +1,3 @@
-import { useNavigate } from 'react-router-dom'
-
 import { Anime } from '../../types'
 import { RootContainer } from '../shared/RootContainer'
 import Spacer from '../UI/Spacer'
@@ -26,13 +24,10 @@ export default function AnimeDetail({
   votes,
   year,
 }: AnimeDetailProps) {
-  const navigate = useNavigate()
-
   return (
     <div>
       <Cover url={coverURL} />
       <RootContainer>
-        <button onClick={() => navigate(-1)}>Back</button>
         <Detail
           title={title}
           type={type}
