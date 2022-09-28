@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+import Heading from '../../UI/Heading'
 import { Logo } from './Logo'
 import LogoHead from './LogoHead'
 import SearchIcon from './SearchIcon'
@@ -12,7 +13,9 @@ export default function Header() {
         <Logo>
           <LogoHead />
           <span>|</span>
-          <h1>AnimeTrailers</h1>
+          <Heading as="h1" size="3xl">
+            AnimeTrailers
+          </Heading>
         </Logo>
       </Link>
       <Link to="/search">
