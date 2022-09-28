@@ -90,8 +90,8 @@ export function parseRawAnimeData(rawData: RawAnimeData): Anime {
   return {
     ...rawData,
     id: rawData.mal_id,
-    coverURL: rawData.images.jpg.image_url,
-    largeImageURL: rawData.images.jpg.large_image_url,
+    coverURL: rawData.images.webp.image_url,
+    largeImageURL: rawData.images.webp.large_image_url,
     videoURL: rawData.trailer.embed_url
       ? rawData.trailer.embed_url.replace('autoplay=1', 'autoplay=0')
       : '',
