@@ -32,11 +32,29 @@ export default function Detail({
         <Text as="span" size="md">
           {type === 'TV' ? '📺' : '🎥'} -
         </Text>{' '}
+        {score && (
+          <>
+            <Text as="span" size="md">
+              {score} Score
+            </Text>{' '}
+          </>
+        )}
+        {votes && (
+          <>
+            <Text as="span" size="md">
+              ({votes} votes)
+            </Text>{' '}
+          </>
+        )}
+        {episodeCount && (
+          <>
+            <Text as="span" size="md">
+              - {episodeCount} episodes
+            </Text>{' '}
+          </>
+        )}
         <Text as="span" size="md">
-          {score} Score ({votes} votes)
-        </Text>{' '}
-        <Text as="span" size="md">
-          - {episodeCount} episodes ({status})
+          ({status})
         </Text>{' '}
         <Text as="span" size="md">
           - {year}

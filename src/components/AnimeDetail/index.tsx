@@ -44,7 +44,9 @@ export default function AnimeDetail({
         <Spacer direction="column" spacing={1} />
         <Summary synopsis={synopsis} />
         <Spacer direction="column" spacing={1} />
-        {streaming && <StreamingList streaming={streaming} />}
+        {streaming && streaming.length > 0 && (
+          <StreamingList streaming={streaming} />
+        )}
       </RootContainer>
     </div>
   )
