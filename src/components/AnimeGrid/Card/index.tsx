@@ -25,7 +25,7 @@ const Card = forwardRef(
     ref: Ref<HTMLImageElement>
   ) => {
     return (
-      <Container to={`/animes/${id}/${title}`}>
+      <Container to={`/animes/${id}/${encodeURIComponent(title)}`}>
         <StyledCard role="button" aria-hidden>
           <img src={coverURL} alt={`${title} cover`} ref={ref} />
         </StyledCard>

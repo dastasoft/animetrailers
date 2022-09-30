@@ -1,5 +1,8 @@
 import Heading from '../../UI/Heading'
+import Spacer from '../../UI/Spacer'
 import Text from '../../UI/Text'
+import PlatformLink from './PlatformLink'
+import { Links } from './PlatformLink/Links'
 
 type StreamingListProps = {
   streaming: {
@@ -14,17 +17,12 @@ export default function StreamingList({ streaming }: StreamingListProps) {
       <Heading size="2xl" color="#FFE99C" as="h3">
         Where to watch
       </Heading>
-      <ul>
-        {streaming.map(({ name, url }) => {
-          return (
-            <li key={name}>
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                {name}
-              </a>
-            </li>
-          )
-        })}
-      </ul>
+      <Spacer direction="column" spacing={0.5} />
+      <Links>
+        {streaming.map(({ name, url }) => (
+          <PlatformLink key={name} name={name} url={url} />
+        ))}
+      </Links>
 
       <Text size="xs">*Some titles may not be available in your country</Text>
     </div>

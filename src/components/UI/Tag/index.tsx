@@ -1,20 +1,12 @@
 import React from 'react'
 
-import styles from './Tag.module.css'
+import { StyledTag } from './StyledTag'
 
 type TagProps = {
   variant?: 'solid' | 'outlined'
   text: string
 } & Omit<React.ComponentProps<'span'>, 'children'>
 
-export default function Tag({
-  text,
-  variant = 'solid',
-  ...otherProps
-}: TagProps) {
-  return (
-    <span className={styles[`Tag-${variant}`]} {...otherProps}>
-      {text}
-    </span>
-  )
+export default function Tag({ text, variant = 'solid' }: TagProps) {
+  return <StyledTag variant={variant}>{text}</StyledTag>
 }

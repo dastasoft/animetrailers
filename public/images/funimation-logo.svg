@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1000"
+   height="998.66302"
+   viewBox="0 0 264.58333 264.2296"
+   version="1.1"
+   id="svg16324"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="Funimation Smile 2016.svg">
+  <defs
+     id="defs16318">
+    <clipPath
+       id="clipPath3133"
+       clipPathUnits="userSpaceOnUse">
+      <rect
+         y="357.01453"
+         x="160.26463"
+         height="36.109913"
+         width="434.60861"
+         id="rect3135"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="551.86627"
+     inkscape:cy="546.93337"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata16321">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-32.770412)">
+    <path
+       inkscape:connector-curvature="0"
+       id="path3346"
+       d="M 114.83299,296.22917 C 99.738373,294.05631 86.510833,289.99536 73.595875,283.56904 8.8249515,251.33929 -18.115064,173.60661 12.802194,108.15477 39.072335,52.541173 101.1877,22.445911 161.73281,35.997385 c 50.66695,11.340307 89.53329,51.062618 100.66518,102.881755 2.0765,9.66565 2.86521,31.68775 1.51998,42.43378 -1.84407,14.72983 -6.25188,29.2338 -13.00106,42.77956 -7.24785,14.54675 -14.55223,24.32314 -27.40395,36.67795 -19.39517,18.64546 -41.19827,29.63959 -68.95611,34.77111 -8.59301,1.58847 -30.7951,1.97279 -39.72386,0.68725 z m 32.37855,-51.52122 c 7.85009,-1.55635 18.39388,-6.77319 23.41041,-11.58285 4.9621,-4.7577 9.46072,-11.6854 11.48988,-17.6942 0.86656,-2.56645 1.57589,-4.94063 1.57589,-5.27599 0,-0.3359 -22.85745,-0.61003 -50.7942,-0.61003 H 82.099311 l 0.458681,2.83749 c 0.735897,4.55708 5.520928,13.38854 9.789595,18.06887 6.567863,7.20129 15.102493,11.91226 25.890763,14.29123 6.33057,1.39589 21.85067,1.37735 28.97366,-0.0386 z"
+       style="fill:#472d8e;fill-opacity:1;stroke-width:2.52214909"
+       sodipodi:nodetypes="ccccccccccccccsscccccc" />
+  </g>
+</svg>

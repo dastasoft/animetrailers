@@ -1,4 +1,5 @@
 import Heading from '../../UI/Heading'
+import Text from '../../UI/Text'
 
 type SummaryProps = {
   synopsis: string
@@ -10,7 +11,7 @@ export default function Summary({ synopsis }: SummaryProps) {
       <Heading size="2xl" color="#FFE99C" as="h3">
         Summary
       </Heading>
-      <p>{synopsis}</p>
+      <Text size="lg">{synopsis}</Text>
     </div>
   )
 }
