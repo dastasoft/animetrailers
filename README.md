@@ -12,7 +12,7 @@
 - [x] Design phase
   - [x] Layout -> Header / Main / Footer
   - [x] Screens -> Home / Anime Detail / Anime Search
-- [] SEO, preview link information specially on anime details
+- [x] SEO, preview link information specially on anime details
 - [] Add favorites feature
 
 ## Features

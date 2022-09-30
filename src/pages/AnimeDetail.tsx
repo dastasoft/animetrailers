@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { useParams } from 'react-router-dom'
 
 import {
@@ -8,6 +9,7 @@ import {
   RawAnimeData,
 } from '../api/jikanAPI'
 import ADetail from '../components/AnimeDetail'
+import { CONSTANTS } from '../constants'
 import useFetch from '../hooks/useFetch'
 import { Anime } from '../types'
 
@@ -25,5 +27,34 @@ export default function AnimeDetail() {
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error</div>
 
-  return anime && <ADetail {...anime} />
+  return (
+    anime && (
+      <>
+        <Helmet>
+          <title>
+            {CONSTANTS.TITLE} - {anime.title}
+          </title>
+          <meta name="description" content={CONSTANTS.DESCRIPTION} />
+          <link
+            rel="canonical"
+            href={`${CONSTANTS.URL}${encodeURIComponent(anime.title)}`}
+          />
+          <meta property="og:image" content={anime.largeImageURL} />
+          <meta
+            property="og:title"
+            content={`${CONSTANTS.TITLE} - ${anime.title}`}
+          />
+          <meta property="og:description" content={CONSTANTS.DESCRIPTION} />
+          <meta
+            property="og:url"
+            content={`${CONSTANTS.URL}${encodeURIComponent(anime.title)}`}
+          />
+          <meta property="og:image:height" content="200" />
+          <meta property="og:image:width" content="200" />
+          <meta property="og:locale" content="en" />
+        </Helmet>
+        <ADetail {...anime} />
+      </>
+    )
+  )
 }
