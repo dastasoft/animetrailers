@@ -23,6 +23,8 @@ body,
 
 body {
   font-family: 'LeagueGothic';
+  line-height: 25px;
+  letter-spacing: 0.03em;
 }
 
 a {

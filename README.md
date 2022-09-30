@@ -12,6 +12,8 @@
 - [x] Design phase
   - [x] Layout -> Header / Main / Footer
   - [x] Screens -> Home / Anime Detail / Anime Search
+- [] Fix URL Anime name
+- [] SEO, preview link information specially on anime details
 - [] Add favorites feature
 
 ## Features
