@@ -34,7 +34,7 @@ export default function AnimeDetail() {
           <title>
             {CONSTANTS.TITLE} - {anime.title}
           </title>
-          <meta name="description" content={CONSTANTS.DESCRIPTION} />
+          <meta name="description" content={anime.synopsis} />
           <link
             rel="canonical"
             href={`${CONSTANTS.URL}${encodeURIComponent(anime.title)}`}
@@ -44,7 +44,7 @@ export default function AnimeDetail() {
             property="og:title"
             content={`${CONSTANTS.TITLE} - ${anime.title}`}
           />
-          <meta property="og:description" content={CONSTANTS.DESCRIPTION} />
+          <meta property="og:description" content={anime.synopsis} />
           <meta
             property="og:url"
             content={`${CONSTANTS.URL}${encodeURIComponent(anime.title)}`}
