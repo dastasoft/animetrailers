@@ -8,6 +8,7 @@ import {
   RawAnimeData,
 } from '../api/jikanAPI'
 import AnimeGrid from '../components/AnimeGrid'
+import SEO from '../components/SEO'
 import { ContainerBg } from '../components/shared/ContainerBg'
 import { Liner } from '../components/shared/Liner'
 import { RootContainer } from '../components/shared/RootContainer'
@@ -71,6 +72,7 @@ export default function Search() {
 
   return (
     <div>
+      <SEO />
       <ContainerBg>
         <Input
           name="animeSearch"
