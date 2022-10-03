@@ -4,7 +4,7 @@ const API_ENDPOINT = 'https://api.jikan.moe'
 const API_VERSION = 4
 const NSFW_ENABLED = false
 
-type RawImageData = {
+interface RawImageData {
   image_url: string
   small_image_url: string
   medium_image_url?: string
@@ -12,7 +12,7 @@ type RawImageData = {
   maximum_image_url?: string
 }
 
-export type RawAnimeData = {
+export interface RawAnimeData {
   mal_id: number
   aired: {
     from: string
@@ -34,16 +34,16 @@ export type RawAnimeData = {
   score: number
   synopsis: string
   scored_by: number
-  genres: {
+  genres: Array<{
     name: string
-  }[]
-  streaming: {
+  }>
+  streaming: Array<{
     name: string
     url: string
-  }[]
+  }>
 }
 
-export type RawPromoData = {
+export interface RawPromoData {
   entry: {
     mal_id: number
     images: {
@@ -60,7 +60,7 @@ export type RawPromoData = {
   }
 }
 
-export type JikanAPIResponse<T> = {
+export interface JikanAPIResponse<T> {
   pagination: {
     last_visible_page: number
     has_next_page: boolean

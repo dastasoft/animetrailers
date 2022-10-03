@@ -1,6 +1,6 @@
 import { ResponsiveContainer } from './ResponsiveContainer'
 
-type TrailerProps = {
+interface TrailerProps {
   videoURL: string
 }
 

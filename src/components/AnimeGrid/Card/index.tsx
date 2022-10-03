@@ -12,7 +12,7 @@ import { Bottom } from './Bottom'
 import { Container } from './Container'
 import { StyledCard } from './StyledCard'
 
-type CardProps = {
+interface CardProps {
   id: number
   coverURL: string
   title: string
@@ -28,7 +28,7 @@ const Card = forwardRef(
     ref: Ref<HTMLImageElement>
   ) => {
     const { favList, toggleFav } = useContext(FavContext)
-    const liked = favList.find((fav) => fav.id === id) ? true : false
+    const liked = favList.find((fav) => fav.id === id) != null
 
     return (
       <Container to={`/animes/${id}/${encodeURIComponent(title)}`}>

@@ -1,6 +1,6 @@
 export type AnimeType = 'TV' | 'Movie'
 
-export type Anime = {
+export interface Anime {
   coverURL: string
   episodeCount: number
   genres: string[]
@@ -14,13 +14,13 @@ export type Anime = {
   videoURL?: string
   year: number
   votes: number
-  streaming?: {
+  streaming?: Array<{
     name: string
     url: string
-  }[]
+  }>
 }
 
-export type Promo = {
+export interface Promo {
   id: number
   title: string
   coverURL: string

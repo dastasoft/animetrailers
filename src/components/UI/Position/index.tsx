@@ -7,7 +7,7 @@ type HPositon = 'left' | 'right'
 
 export type PositionValues = `${VPosition}-${HPositon}`
 
-type PositionProps = {
+interface PositionProps {
   children: React.ReactNode
   position?: PositionValues
 }

@@ -1,7 +1,7 @@
 import { Link } from './Link'
 import Logo from './Logo'
 
-type PlatformLinkProps = {
+interface PlatformLinkProps {
   name: string
   url?: string
 }

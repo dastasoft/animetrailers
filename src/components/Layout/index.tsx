@@ -5,7 +5,7 @@ import Footer from './Footer'
 import Header from './Header'
 import { Main } from './Main'
 
-type LayoutProps = {
+interface LayoutProps {
   children: React.ReactNode
 }
 

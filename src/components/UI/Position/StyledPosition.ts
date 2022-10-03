@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { PositionValues } from '.'
 
-type StyledPositionProps = {
+interface StyledPositionProps {
   position: PositionValues
 }
 

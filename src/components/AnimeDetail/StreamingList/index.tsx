@@ -4,11 +4,11 @@ import Text from '../../UI/Text'
 import PlatformLink from './PlatformLink'
 import { Links } from './PlatformLink/Links'
 
-type StreamingListProps = {
-  streaming: {
+interface StreamingListProps {
+  streaming: Array<{
     name: string
     url: string
-  }[]
+  }>
 }
 
 export default function StreamingList({ streaming }: StreamingListProps) {

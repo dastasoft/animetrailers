@@ -21,14 +21,14 @@ export default function AnimeDetail() {
   )
 
   useEffect(() => {
-    setAnime(data ? parseRawAnimeData(data.data) : null)
+    setAnime(data != null ? parseRawAnimeData(data.data) : null)
   }, [data])
 
   if (loading) return <div>Loading...</div>
-  if (error) return <div>Error</div>
+  if (error != null) return <div>Error</div>
 
   return (
-    anime && (
+    anime != null && (
       <>
         <Helmet>
           <title>

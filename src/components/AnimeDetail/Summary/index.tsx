@@ -1,7 +1,7 @@
 import Heading from '../../UI/Heading'
 import Text from '../../UI/Text'
 
-type SummaryProps = {
+interface SummaryProps {
   synopsis: string
 }
 

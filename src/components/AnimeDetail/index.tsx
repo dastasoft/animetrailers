@@ -29,7 +29,7 @@ export default function AnimeDetail({
   year,
 }: AnimeDetailProps) {
   const { favList, toggleFav } = useContext(FavContext)
-  const liked = favList.find((fav) => fav.id === id) ? true : false
+  const liked = favList.find((fav) => fav.id === id) != null
 
   return (
     <div>
@@ -55,7 +55,7 @@ export default function AnimeDetail({
         <Spacer direction="column" spacing={1} />
         <Summary synopsis={synopsis} />
         <Spacer direction="column" spacing={1} />
-        {streaming && streaming.length > 0 && (
+        {streaming != null && streaming.length > 0 && (
           <StreamingList streaming={streaming} />
         )}
       </RootContainer>

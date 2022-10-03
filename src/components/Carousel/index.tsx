@@ -25,15 +25,17 @@ export default function Carousel() {
 
   useEffect(() => {
     setPromos(
-      data ? data.data.map((rawPromo) => parseRawPromoData(rawPromo)) : null
+      data != null
+        ? data.data.map((rawPromo) => parseRawPromoData(rawPromo))
+        : null
     )
   }, [data])
 
   if (loading) return <div>Loading...</div>
-  if (error) return <div>Error</div>
+  if (error != null) return <div>Error</div>
 
   return (
-    promos && (
+    promos != null && (
       <ContainerBg>
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}

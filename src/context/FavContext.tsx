@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-dynamic-delete */
 /* eslint-disable no-unused-vars */
 import { createContext, ReactNode, useState } from 'react'
 
 import useLocalStorage from '../hooks/useLocalStorage'
 import { AnimeType } from '../types'
 
-export type Favorite = {
+export interface Favorite {
   id: number
   coverURL: string
   title: string
@@ -14,13 +15,13 @@ export type Favorite = {
   year: number
 }
 
-type FavContextType = {
+interface FavContextType {
   favList: Favorite[]
   // setFavList: React.Dispatch<React.SetStateAction<Favorite[]>>
   toggleFav: (id: number, favorite: Favorite) => void
 }
 
-type FavContextProviderProps = {
+interface FavContextProviderProps {
   children: ReactNode
 }
 
@@ -34,7 +35,7 @@ export const FavContextProvider = ({ children }: FavContextProviderProps) => {
   const [favList, setFavList] = useState<Favorite[]>(Object.values(storage))
 
   const toggleFav = (id: number, favorite: Favorite) => {
-    const liked = favList.find((fav) => fav.id === id) ? true : false
+    const liked = favList.find((fav) => fav.id === id) != null
 
     if (liked) {
       setFavList((prevValue) => prevValue.filter((fav) => fav.id !== id))

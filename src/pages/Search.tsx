@@ -35,7 +35,7 @@ export default function Search() {
   const lastAnimeRef = useCallback(
     (node: HTMLImageElement) => {
       if (loading) return
-      if (observer.current) observer.current.disconnect()
+      if (observer.current != null) observer.current.disconnect()
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && data?.pagination.has_next_page) {
           setPage((prevValue) => prevValue + 1)
@@ -51,12 +51,13 @@ export default function Search() {
   }, [])
 
   useEffect(() => {
-    if (data && searchTerm.get('q')) {
+    if (data != null && searchTerm.get('q')) {
       setAnimeList((prevValue) => [
         ...prevValue,
         ...data.data.map((anime) => parseRawAnimeData(anime)),
       ])
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -93,7 +94,7 @@ export default function Search() {
           </>
         )}
         {loading && <div>Loading...</div>}
-        {error && <div>Error</div>}
+        {error != null && <div>Error</div>}
       </RootContainer>
     </div>
   )

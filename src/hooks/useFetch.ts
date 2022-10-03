@@ -9,7 +9,7 @@ const enum ACTIONS {
   ERROR,
 }
 
-type State<T> = {
+interface State<T> {
   data?: T
   loading: boolean
   error?: Error
@@ -20,7 +20,7 @@ type Action<T> =
   | { type: ACTIONS.FETCHED; payload: T }
   | { type: ACTIONS.ERROR; payload: Error }
 
-type Options = {
+interface Options {
   initialFetch: boolean
   delayFetch?: number
 }
@@ -93,12 +93,13 @@ function useFetch<T = unknown>(
       }
     }
 
-    const timeoutId = setTimeout(() => fetchData(), delayFetch)
+    const timeoutId = setTimeout(async () => await fetchData(), delayFetch)
 
     return () => {
       cancelRequest.current = true
       clearTimeout(timeoutId)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [delayFetch, initialFetch, url])
 
   return state

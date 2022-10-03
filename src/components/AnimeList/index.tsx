@@ -24,7 +24,7 @@ export default function AnimeList() {
   const lastAnimeRef = useCallback(
     (node: HTMLImageElement) => {
       if (loading) return
-      if (observer.current) observer.current.disconnect()
+      if (observer.current != null) observer.current.disconnect()
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && data?.pagination.has_next_page) {
           setPage((prevValue) => prevValue + 1)
@@ -36,7 +36,7 @@ export default function AnimeList() {
   )
 
   useEffect(() => {
-    if (data) {
+    if (data != null) {
       setAnimeList((prevValue) => [
         ...prevValue,
         ...data.data.map((anime) => parseRawAnimeData(anime)),
@@ -52,7 +52,7 @@ export default function AnimeList() {
       <Liner />
       <AnimeGrid animeList={animeList} lastAnimeRef={lastAnimeRef} />
       {loading && <div>Loading...</div>}
-      {error && <div>Error</div>}
+      {error != null && <div>Error</div>}
     </RootContainer>
   )
 }
