@@ -13,7 +13,7 @@ export default function Header() {
         <Logo>
           <LogoHead />
           <span>|</span>
-          <Heading as="h1" size="3xl">
+          <Heading as="h1" variant="primary" size="3xl">
             AnimeTrailers
           </Heading>
         </Logo>
