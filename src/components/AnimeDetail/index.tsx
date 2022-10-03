@@ -1,3 +1,6 @@
+import { useContext } from 'react'
+
+import { FavContext } from '../../context/FavContext'
 import { Anime } from '../../types'
 import { RootContainer } from '../shared/RootContainer'
 import Spacer from '../UI/Spacer'
@@ -11,6 +14,7 @@ import Trailer from './Trailer'
 type AnimeDetailProps = Anime
 
 export default function AnimeDetail({
+  id,
   coverURL,
   episodeCount,
   genres,
@@ -24,11 +28,18 @@ export default function AnimeDetail({
   votes,
   year,
 }: AnimeDetailProps) {
+  const { favList, toggleFav } = useContext(FavContext)
+  const liked = favList.find((fav) => fav.id === id) ? true : false
+
   return (
     <div>
       <Cover url={coverURL} />
       <RootContainer>
         <Detail
+          liked={liked}
+          toggleFav={() =>
+            toggleFav(id, { id, coverURL, title, status, score, type, year })
+          }
           title={title}
           type={type}
           episodeCount={episodeCount}

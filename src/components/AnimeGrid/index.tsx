@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
+import { Favorite } from '../../context/FavContext'
 import { Anime } from '../../types'
 import Card from './Card'
 import { Grid } from './Grid'
 
 type AnimeGridProps = {
-  animeList: Anime[]
+  animeList: Anime[] | Favorite[]
   lastAnimeRef?: (node: HTMLImageElement) => void
 }
 

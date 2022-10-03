@@ -1,9 +1,12 @@
 import { AnimeType } from '../../../types'
+import LikeButton from '../../LikeButton'
 import { Liner } from '../../shared/Liner'
 import Heading from '../../UI/Heading'
 import Text from '../../UI/Text'
 
 type DetailProps = {
+  liked: boolean
+  toggleFav: () => void
   title: string
   type: AnimeType
   episodeCount: number
@@ -14,6 +17,8 @@ type DetailProps = {
 }
 
 export default function Detail({
+  liked,
+  toggleFav,
   title,
   type,
   episodeCount,
@@ -25,7 +30,7 @@ export default function Detail({
   return (
     <div>
       <Heading size="4xl" variant="secondary" as="h2">
-        {title}
+        <LikeButton liked={liked} handleLike={toggleFav} /> {title}
       </Heading>
       <Liner />
       <div>

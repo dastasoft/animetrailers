@@ -13,7 +13,7 @@
   - [x] Layout -> Header / Main / Footer
   - [x] Screens -> Home / Anime Detail / Anime Search
 - [x] SEO, preview link information specially on anime details
-- [] Add favorites feature
+- [x] Add favorites feature
 
 ## Features
 
