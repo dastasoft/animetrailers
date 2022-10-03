@@ -46,7 +46,7 @@ export default function AnimeList() {
 
   return (
     <RootContainer>
-      <Heading size="4xl" color="#ffe99c" as="h2">
+      <Heading size="4xl" variant="secondary" as="h2">
         Top Animes
       </Heading>
       <Liner />

@@ -14,7 +14,7 @@ type StreamingListProps = {
 export default function StreamingList({ streaming }: StreamingListProps) {
   return (
     <div>
-      <Heading size="2xl" color="#FFE99C" as="h3">
+      <Heading size="2xl" variant="secondary" as="h3">
         Where to watch
       </Heading>
       <Spacer direction="column" spacing={0.5} />

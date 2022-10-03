@@ -38,7 +38,7 @@ const Card = forwardRef(
               <Text as="span" size="md">
                 {type === 'TV' ? '📺' : '🎥'} -
               </Text>{' '}
-              <Text as="span" size="md" color="#FF681A">
+              <Text as="span" size="md" variant="primary">
                 {score} Score
               </Text>{' '}
               <Text as="span" size="md">

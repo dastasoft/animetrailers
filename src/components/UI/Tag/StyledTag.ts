@@ -13,15 +13,15 @@ export const StyledTag = styled.span<StyledTagProps>`
   ${({ variant }) => {
     if (variant === 'solid') {
       return css`
-        background-color: #ff681a;
-        border: 1px solid #ff681a;
+        background-color: var(--primary);
+        border: 1px solid var(--primary);
       `
     }
 
     if (variant === 'outlined') {
       return css`
         background-color: transparent;
-        border: 1px solid #ff681a;
+        border: 1px solid var(--primary);
       `
     }
   }};

@@ -24,7 +24,7 @@ export default function Detail({
 }: DetailProps) {
   return (
     <div>
-      <Heading size="4xl" color="#FFE99C" as="h2">
+      <Heading size="4xl" variant="secondary" as="h2">
         {title}
       </Heading>
       <Liner />

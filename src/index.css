@@ -1,3 +1,10 @@
+:root {
+  --primary: #ff681a;
+  --secondary: #ffe99c;
+  --bg: #516194;
+  --bg2: #283869;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -85,7 +85,7 @@ export default function Search() {
       <RootContainer>
         {animeList.length > 0 && (
           <>
-            <Heading size="4xl" color="#FFE99C" as="h2">
+            <Heading size="4xl" variant="secondary" as="h2">
               Results
             </Heading>
             <Liner />

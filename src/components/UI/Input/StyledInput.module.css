@@ -1,8 +1,8 @@
 .StyledInput {
   width: 100%;
-  border: 1px solid #ff681a;
+  border: 1px solid var(--primary);
   border-radius: 3px;
   padding: 0.5rem;
   color: white;
-  background-color: #516194;
+  background-color: var(--bg);
 }

@@ -1,3 +1,15 @@
+.base {
+  color: white;
+}
+
+.primary {
+  color: var(--primary);
+}
+
+.secondary {
+  color: var(--secondary);
+}
+
 .xs {
   font-size: 0.75rem;
 }

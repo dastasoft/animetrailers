@@ -8,7 +8,7 @@ type SummaryProps = {
 export default function Summary({ synopsis }: SummaryProps) {
   return (
     <div>
-      <Heading size="2xl" color="#FFE99C" as="h3">
+      <Heading size="2xl" variant="secondary" as="h3">
         Summary
       </Heading>
       <Text size="lg">{synopsis}</Text>

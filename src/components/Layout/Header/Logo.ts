@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Logo = styled.div`
-  color: #ff681a;
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,7 +12,7 @@ export const Logo = styled.div`
   svg {
     width: 90px;
     height: 100px;
-    fill: #ff681a;
+    fill: var(--primary);
   }
 
   span {

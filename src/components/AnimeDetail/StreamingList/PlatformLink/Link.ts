@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Link = styled.a`
-  background: #516194;
+  background: var(--bg);
   border: 2px solid #000000;
   border-radius: 3px;
   color: black;
@@ -16,7 +16,7 @@ export const Link = styled.a`
   height: 50px;
 
   :hover {
-    background: #ffe99c;
+    background: var(--secondary);
   }
 
   svg {
