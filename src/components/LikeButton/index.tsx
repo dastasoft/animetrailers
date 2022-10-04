@@ -9,6 +9,7 @@ interface LikeButtonProps {
 export default function LikeButton({ liked, handleLike }: LikeButtonProps) {
   return (
     <Heart
+      style={{ cursor: 'pointer' }}
       width="30px"
       height="30px"
       fill={liked ? 'tomato' : 'gray'}

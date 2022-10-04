@@ -35,7 +35,7 @@ export const FavContextProvider = ({ children }: FavContextProviderProps) => {
   const [favList, setFavList] = useState<Favorite[]>(Object.values(storage))
 
   const toggleFav = (id: number, favorite: Favorite) => {
-    const liked = favList.find((fav) => fav.id === id) != null
+    const liked = favList?.find((fav) => fav.id === id) != null
 
     if (liked) {
       setFavList((prevValue) => prevValue.filter((fav) => fav.id !== id))

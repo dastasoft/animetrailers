@@ -21,10 +21,10 @@ export default function Search() {
   const [searchTerm, setSearchTerm] = useSearchParams({ q: '' })
   const [animeList, setAnimeList] = useState<Anime[]>([])
   const [page, setPage] = useState(1)
-  const inputRef = useRef<HTMLInputElement>(null!)
+  const inputRef = useRef<HTMLInputElement | null>(null)
 
   const { data, loading, error } = useFetch<JikanAPIResponse<RawAnimeData[]>>(
-    getAnimeByName(page, searchTerm.get('q')!),
+    getAnimeByName(page, searchTerm.get('q') ?? ''),
     {
       initialFetch: false,
       delayFetch: 500,
@@ -47,7 +47,7 @@ export default function Search() {
   )
 
   useEffect(() => {
-    inputRef.current.focus()
+    if (inputRef?.current) inputRef.current.focus()
   }, [])
 
   useEffect(() => {
@@ -79,7 +79,7 @@ export default function Search() {
           name="animeSearch"
           type="text"
           ref={inputRef}
-          value={searchTerm.get('q')!}
+          value={searchTerm.get('q') ?? ''}
           onChange={onChangeHandler}
         />
       </ContainerBg>

@@ -10,6 +10,7 @@ import Position from '../../UI/Position'
 import Text from '../../UI/Text'
 import { Bottom } from './Bottom'
 import { Container } from './Container'
+import { RootContainer } from './RootContainer'
 import { StyledCard } from './StyledCard'
 
 interface CardProps {
@@ -28,51 +29,53 @@ const Card = forwardRef(
     ref: Ref<HTMLImageElement>
   ) => {
     const { favList, toggleFav } = useContext(FavContext)
-    const liked = favList.find((fav) => fav.id === id) != null
+    const liked = favList?.find((fav) => fav.id === id) != null
 
     return (
-      <Container to={`/animes/${id}/${encodeURIComponent(title)}`}>
-        <StyledCard role="button" aria-hidden>
-          <img src={coverURL} alt={`${title} cover`} ref={ref} />
-          <Position>
-            <LikeButton
-              liked={liked}
-              handleLike={() =>
-                toggleFav(id, {
-                  id,
-                  coverURL,
-                  title,
-                  status,
-                  score,
-                  type,
-                  year,
-                })
-              }
-            />
-          </Position>
-        </StyledCard>
-        <Bottom>
-          <Heading as="h2" size="xl">
-            {title}
-          </Heading>
-          <Flexer>
-            <div>
+      <RootContainer>
+        <Container to={`/animes/${id}/${encodeURIComponent(title)}`}>
+          <StyledCard role="button" aria-hidden>
+            <img src={coverURL} alt={`${title} cover`} ref={ref} />
+          </StyledCard>
+          <Bottom>
+            <Heading as="h2" size="xl">
+              {title}
+            </Heading>
+            <Flexer>
+              <div>
+                <Text as="span" size="md">
+                  {type === 'TV' ? '📺' : '🎥'} -
+                </Text>{' '}
+                <Text as="span" size="md" variant="primary">
+                  {score} Score
+                </Text>{' '}
+                <Text as="span" size="md">
+                  - {status}
+                </Text>
+              </div>
               <Text as="span" size="md">
-                {type === 'TV' ? '📺' : '🎥'} -
-              </Text>{' '}
-              <Text as="span" size="md" variant="primary">
-                {score} Score
-              </Text>{' '}
-              <Text as="span" size="md">
-                - {status}
+                {year}
               </Text>
-            </div>
-            <Text as="span" size="md">
-              {year}
-            </Text>
-          </Flexer>
-        </Bottom>
-      </Container>
+            </Flexer>
+          </Bottom>
+        </Container>
+        <Position>
+          <LikeButton
+            liked={liked}
+            handleLike={() =>
+              toggleFav(id, {
+                id,
+                coverURL,
+                title,
+                status,
+                score,
+                type,
+                year,
+              })
+            }
+          />
+        </Position>
+      </RootContainer>
     )
   }
 )

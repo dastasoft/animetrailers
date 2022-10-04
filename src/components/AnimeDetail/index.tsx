@@ -29,7 +29,7 @@ export default function AnimeDetail({
   year,
 }: AnimeDetailProps) {
   const { favList, toggleFav } = useContext(FavContext)
-  const liked = favList.find((fav) => fav.id === id) != null
+  const liked = favList?.find((fav) => fav.id === id) != null
 
   return (
     <div>
