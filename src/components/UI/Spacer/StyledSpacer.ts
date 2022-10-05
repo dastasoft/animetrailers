@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-interface StyledSpacerProps {
+type StyledSpacerProps = {
   spacing: number
   direction: 'row' | 'column'
 }

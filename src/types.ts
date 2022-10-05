@@ -1,6 +1,6 @@
 export type AnimeType = 'TV' | 'Movie'
 
-export interface Anime {
+export type Anime = {
   coverURL: string
   episodeCount: number
   genres: string[]
@@ -20,7 +20,7 @@ export interface Anime {
   }>
 }
 
-export interface Promo {
+export type Promo = {
   id: number
   title: string
   coverURL: string

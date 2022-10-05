@@ -1,7 +1,7 @@
 /// <reference types="vite-plugin-svgr/client" />
 import { ReactComponent as Heart } from '../../assets/heart-solid.svg'
 
-interface LikeButtonProps {
+type LikeButtonProps = {
   liked: boolean
   handleLike: () => void
 }

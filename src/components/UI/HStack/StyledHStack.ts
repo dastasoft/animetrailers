@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-interface StyledHStackProps {
+type StyledHStackProps = {
   spacing: number
 }
 

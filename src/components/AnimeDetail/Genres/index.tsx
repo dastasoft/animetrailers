@@ -1,7 +1,7 @@
 import HStack from '../../UI/HStack'
 import Tag from '../../UI/Tag'
 
-interface GenresProps {
+type GenresProps = {
   genres: string[]
 }
 

@@ -9,7 +9,7 @@ const enum ACTIONS {
   ERROR,
 }
 
-interface State<T> {
+type State<T> = {
   data?: T
   loading: boolean
   error?: Error
@@ -20,7 +20,7 @@ type Action<T> =
   | { type: ACTIONS.FETCHED; payload: T }
   | { type: ACTIONS.ERROR; payload: Error }
 
-interface Options {
+type Options = {
   initialFetch: boolean
   delayFetch?: number
 }

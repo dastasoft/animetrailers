@@ -4,7 +4,7 @@ import Text from '../../UI/Text'
 import PlatformLink from './PlatformLink'
 import { Links } from './PlatformLink/Links'
 
-interface StreamingListProps {
+type StreamingListProps = {
   streaming: Array<{
     name: string
     url: string

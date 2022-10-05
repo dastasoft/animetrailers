@@ -1,6 +1,6 @@
 import { StyledSpacer } from './StyledSpacer'
 
-interface SpacerProps {
+type SpacerProps = {
   spacing?: number
   direction?: 'row' | 'column'
 }

@@ -4,7 +4,7 @@ import { Anime } from '../../types'
 import Card from './Card'
 import { Grid } from './Grid'
 
-interface AnimeGridProps {
+type AnimeGridProps = {
   animeList: Anime[] | Favorite[]
   lastAnimeRef?: (node: HTMLImageElement) => void
 }

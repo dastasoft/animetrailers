@@ -2,7 +2,7 @@ import React from 'react'
 
 import { StyledHStack } from './StyledHStack'
 
-interface HStackProps {
+type HStackProps = {
   spacing?: number
   children: React.ReactNode
 }

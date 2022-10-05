@@ -4,7 +4,7 @@ import { Liner } from '../../shared/Liner'
 import Heading from '../../UI/Heading'
 import Text from '../../UI/Text'
 
-interface DetailProps {
+type DetailProps = {
   liked: boolean
   toggleFav: () => void
   title: string

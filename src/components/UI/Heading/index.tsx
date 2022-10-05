@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './Heading.module.css'
 
-interface HeadingOwnProps<E extends React.ElementType> {
+type HeadingOwnProps<E extends React.ElementType> = {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
   children: React.ReactNode
   variant?: 'base' | 'primary' | 'secondary'

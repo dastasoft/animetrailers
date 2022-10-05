@@ -1,6 +1,6 @@
 import { ContainerBg } from '../../shared/ContainerBg'
 
-interface CoverProps {
+type CoverProps = {
   url: string
 }
 

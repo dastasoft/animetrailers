@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './Text.module.css'
 
-interface TextOwnProps<E extends React.ElementType> {
+type TextOwnProps<E extends React.ElementType> = {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   variant?: 'base' | 'primary' | 'secondary'
   children: React.ReactNode

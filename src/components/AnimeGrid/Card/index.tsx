@@ -13,7 +13,7 @@ import { Container } from './Container'
 import { RootContainer } from './RootContainer'
 import { StyledCard } from './StyledCard'
 
-interface CardProps {
+type CardProps = {
   id: number
   coverURL: string
   title: string

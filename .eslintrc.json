@@ -40,6 +40,7 @@
     "@typescript-eslint/triple-slash-reference": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/no-non-null-assertion": "warn",
-    "@typescript-eslint/consistent-type-assertions": "warn"
+    "@typescript-eslint/consistent-type-assertions": "warn",
+    "@typescript-eslint/consistent-type-definitions": ["warn", "type"]
   }
 }

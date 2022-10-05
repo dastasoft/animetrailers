@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-interface StyledTagProps {
+type StyledTagProps = {
   variant?: 'solid' | 'outlined'
 }
 

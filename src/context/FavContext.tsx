@@ -5,7 +5,7 @@ import { createContext, ReactNode, useState } from 'react'
 import useLocalStorage from '../hooks/useLocalStorage'
 import { AnimeType } from '../types'
 
-export interface Favorite {
+export type Favorite = {
   id: number
   coverURL: string
   title: string
@@ -15,13 +15,13 @@ export interface Favorite {
   year: number
 }
 
-interface FavContextType {
+type FavContextType = {
   favList: Favorite[]
   // setFavList: React.Dispatch<React.SetStateAction<Favorite[]>>
   toggleFav: (id: number, favorite: Favorite) => void
 }
 
-interface FavContextProviderProps {
+type FavContextProviderProps = {
   children: ReactNode
 }
 
