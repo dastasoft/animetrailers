@@ -35,28 +35,26 @@ export default function Carousel() {
   if (error != null) return <div>Error</div>
 
   return (
-    promos != null && (
-      <ContainerBg>
-        <Swiper
-          modules={[Autoplay, Navigation, Pagination]}
-          centeredSlides={true}
-          slidesPerView={1}
-          autoplay
-          navigation
-          pagination
-          className="swipper"
-        >
-          {promos.map(({ id, coverURL, title }, index) => {
-            return (
-              <SwiperSlide key={`${id}-${index}`}>
-                <Link to={`/animes/${id}/${title}`}>
-                  <img src={coverURL} alt={title} width="100%" height="100%" />
-                </Link>
-              </SwiperSlide>
-            )
-          })}
-        </Swiper>
-      </ContainerBg>
-    )
+    <ContainerBg>
+      <Swiper
+        modules={[Autoplay, Navigation, Pagination]}
+        centeredSlides={true}
+        slidesPerView={1}
+        autoplay
+        navigation
+        pagination
+        className="swipper"
+      >
+        {promos?.map(({ id, coverURL, title }, index) => {
+          return (
+            <SwiperSlide key={`${id}-${index}`}>
+              <Link to={`/animes/${id}/${title}`}>
+                <img src={coverURL} alt={title} width="100%" height="100%" />
+              </Link>
+            </SwiperSlide>
+          )
+        })}
+      </Swiper>
+    </ContainerBg>
   )
 }
