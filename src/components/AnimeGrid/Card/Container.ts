@@ -6,4 +6,6 @@ export const Container = styled(Link)`
   flex-direction: column;
   overflow: hidden;
   color: white;
+  height: 100%;
+  width: 100%;
 `

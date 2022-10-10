@@ -10,8 +10,8 @@ import Position from '../../UI/Position'
 import Text from '../../UI/Text'
 import { Bottom } from './Bottom'
 import { Container } from './Container'
+import { Cover } from './Cover'
 import { RootContainer } from './RootContainer'
-import { StyledCard } from './StyledCard'
 
 type CardProps = {
   id: number
@@ -34,9 +34,7 @@ const Card = forwardRef(
     return (
       <RootContainer>
         <Container to={`/animes/${id}/${encodeURIComponent(title)}`}>
-          <StyledCard role="button" aria-hidden>
-            <img src={coverURL} alt={`${title} cover`} ref={ref} />
-          </StyledCard>
+          <Cover src={coverURL} alt={`${title} cover`} ref={ref} />
           <Bottom>
             <Heading as="h2" size="xl">
               {title}
