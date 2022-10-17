@@ -2,23 +2,22 @@ import React from 'react'
 
 import styles from './Heading.module.css'
 
-type HeadingOwnProps<E extends React.ElementType> = {
+type HeadingOwnProps<T extends React.ElementType> = {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
-  children: React.ReactNode
   variant?: 'base' | 'primary' | 'secondary'
-  as?: E
+  as?: T | 'h2'
 }
 
-type HeadingProps<E extends React.ElementType> = HeadingOwnProps<E> &
-  Omit<React.ComponentProps<E>, keyof HeadingOwnProps<E>>
+type HeadingProps<T extends React.ElementType> = HeadingOwnProps<T> &
+  React.ComponentPropsWithoutRef<T>
 
-export default function Heading<E extends React.ElementType = 'h2'>({
+export default function Heading<T extends React.ElementType = 'h2'>({
   size = 'md',
   children,
   variant = 'base',
-  as,
-}: HeadingProps<E>) {
-  const Component = as ?? 'h2'
+  as = 'h2',
+}: HeadingProps<T>) {
+  const Component = as
 
   return (
     <Component className={`${styles[size]} ${styles[variant]}`}>

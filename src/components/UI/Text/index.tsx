@@ -2,23 +2,22 @@ import React from 'react'
 
 import styles from './Text.module.css'
 
-type TextOwnProps<E extends React.ElementType> = {
+type TextOwnProps<T extends React.ElementType> = {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   variant?: 'base' | 'primary' | 'secondary'
-  children: React.ReactNode
-  as?: E
+  as?: T | 'div'
 }
 
-type TextProps<E extends React.ElementType> = TextOwnProps<E> &
-  Omit<React.ComponentProps<E>, keyof TextOwnProps<E>>
+type TextProps<T extends React.ElementType> = TextOwnProps<T> &
+  React.ComponentPropsWithoutRef<T>
 
-export default function Text<E extends React.ElementType = 'div'>({
+export default function Text<T extends React.ElementType = 'div'>({
   size = 'md',
   variant = 'base',
   children,
-  as,
-}: TextProps<E>) {
-  const Component = as ?? 'div'
+  as = 'div',
+}: TextProps<T>) {
+  const Component = as
 
   return (
     <Component className={`${styles[size]} ${styles[variant]}`}>
