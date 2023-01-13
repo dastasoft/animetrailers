@@ -20,7 +20,9 @@ export default function Heading<T extends React.ElementType = 'h2'>({
   const Component = as
 
   return (
-    <Component className={`${styles[size]} ${styles[variant]}`}>
+    <Component
+      className={`${styles.Heading} ${styles[size]} ${styles[variant]}`}
+    >
       {children}
     </Component>
   )
